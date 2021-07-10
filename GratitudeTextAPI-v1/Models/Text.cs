@@ -10,6 +10,11 @@ namespace GratitudeTextAPI_v1.Models
 {
     public class Text
     {
+        public static String GetTimestamp(DateTime value)
+        {
+            return value.ToString("yyyy-MM-dd");
+        }
+
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
@@ -20,6 +25,6 @@ namespace GratitudeTextAPI_v1.Models
 
         //[BsonElement("Created")]
         //[BsonRepresentation(BsonType.DateTime)]
-        public string Created { get; set; }
+        public string Created { get; set; } = GetTimestamp(DateTime.Now);
     }
 }
